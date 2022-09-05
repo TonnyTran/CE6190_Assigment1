@@ -138,7 +138,8 @@ def alma(model: nn.Module,
         momentum_buffer.mul_(momentum).addcdiv_(δ_grad, square_avg.sqrt().add_(1e-8))
         δ.data.addcmul_(momentum_buffer, batch_view(step_lr), value=-1)
 
-        δ.data.clamp_(min=lower, max=upper)
+        δ.data = torch.minimum(δ.data, lower)
+        δ.data = torch.maximum(δ.data, upper)
 
         if callback:
             callback.accumulate_line('dlr', i, dlr.mean(), title=attack_name + ' - Constraints')

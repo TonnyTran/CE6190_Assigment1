@@ -76,7 +76,9 @@ def asma(model: nn.Module,
         loss = logit_loss - l2_squared
         δ_grad = grad(loss.sum(), δ, only_inputs=True)[0]
 
-        δ.data.add_(δ_grad, alpha=pert_mul).clamp_(min=lower, max=upper)
+        δ.data.add_(δ_grad, alpha=pert_mul)
+        δ.data = torch.minimum(δ.data, lower)
+        δ.data = torch.maximum(δ.data, upper)
 
         if callback:
             callback.accumulate_line('logit_loss', i, logit_loss.mean(), title=attack_name + ' - Logit loss')
