@@ -37,6 +37,8 @@ def run_attack(model: nn.Module,
 
     if return_adv:
         images, adv_images = [], []
+        preds, adv_preds = [], []
+        
 
     for i, (image, label) in enumerate(tqdm(loader, ncols=80, total=loader_length)):
         if return_adv:
@@ -90,6 +92,11 @@ def run_attack(model: nn.Module,
 
         adv_logits = model(adv_image)
         adv_pred = adv_logits.argmax(dim=1)
+
+        if return_adv:
+            preds.append(pred.cpu().clone())
+            adv_preds.append(adv_pred.cpu().clone())
+
         confmat_adv.update(label, adv_pred)
         if targeted:
             apsrs.extend(((adv_pred == attack_label) & target_mask).flatten(1).sum(dim=1).div(target_sum).cpu().tolist())
@@ -123,7 +130,11 @@ def run_attack(model: nn.Module,
         if len(set(shapes)) == 1:
             images = torch.cat(images, dim=0)
             adv_images = torch.cat(adv_images, dim=0)
+            preds = torch.cat(preds, dim=0)
+            adv_preds = torch.cat(adv_preds, dim=0)
         data['images'] = images
         data['adv_images'] = adv_images
+        data['preds'] = preds
+        data['adv_preds'] = adv_preds
 
     return data
