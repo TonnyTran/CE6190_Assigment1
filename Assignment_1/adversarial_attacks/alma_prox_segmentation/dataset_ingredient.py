@@ -14,7 +14,7 @@ dataset_ingredient = Ingredient('dataset')
 @dataset_ingredient.named_config
 def pascal_voc_2012():
     name = 'pascal_voc_2012'
-    root = 'data'
+    root = '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/data'
     split = 'val'
     size = 512
     num_images = None
@@ -23,7 +23,7 @@ def pascal_voc_2012():
 @dataset_ingredient.named_config
 def cityscapes():
     name = 'cityscapes'
-    root = 'data/cityscapes'
+    root = '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/data/cityscapes'
     split = 'val'
     size = (1024, 2048)
     num_images = None

@@ -51,39 +51,39 @@ _mmseg_configs_checkpoints = {
     'fcn_hrnetv2_w48': {
         'pascal_voc_2012': {
             'config': 'mmsegmentation/configs/hrnet/fcn_hr48_512x512_40k_voc12aug.py',
-            'checkpoint': 'checkpoints/fcn_hr48_512x512_40k_voc12aug_20200613_222111-1b0f18bc.pth',
+            'checkpoint': '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/checkpoints/fcn_hr48_512x512_40k_voc12aug_20200613_222111-1b0f18bc.pth',
         },
         'cityscapes': {
             'config': 'mmsegmentation/configs/hrnet/fcn_hr48_512x1024_160k_cityscapes.py',
-            'checkpoint': 'checkpoints/fcn_hr48_512x1024_160k_cityscapes_20200602_190946-59b7973e.pth',
+            'checkpoint': '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/checkpoints/fcn_hr48_512x1024_160k_cityscapes_20200602_190946-59b7973e.pth',
         }
     },
     'deeplabv3plus_resnet50': {
         'pascal_voc_2012': {
             'config': 'mmsegmentation/configs/deeplabv3plus/deeplabv3plus_r50-d8_512x512_40k_voc12aug.py',
-            'checkpoint': 'checkpoints/deeplabv3plus_r50-d8_512x512_40k_voc12aug_20200613_161759-e1b43aa9.pth',
+            'checkpoint': '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/checkpoints/deeplabv3plus_r50-d8_512x512_40k_voc12aug_20200613_161759-e1b43aa9.pth',
         },
         'cityscapes': {
             'config': 'mmsegmentation/configs/deeplabv3plus/deeplabv3plus_r50b-d8_512x1024_80k_cityscapes.py',
-            'checkpoint': 'checkpoints/deeplabv3plus_r50b-d8_512x1024_80k_cityscapes_20201225_213645-a97e4e43.pth',
+            'checkpoint': '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/checkpoints/deeplabv3plus_r50b-d8_512x1024_80k_cityscapes_20201225_213645-a97e4e43.pth',
         },
     },
     'deeplabv3plus_resnet101': {
         'pascal_voc_2012': {
             'config': 'mmsegmentation/configs/deeplabv3plus/deeplabv3plus_r101-d8_512x512_40k_voc12aug.py',
-            'checkpoint': 'checkpoints/deeplabv3plus_r101-d8_512x512_40k_voc12aug_20200613_205333-faf03387.pth',
+            'checkpoint': '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/checkpoints/deeplabv3plus_r101-d8_512x512_40k_voc12aug_20200613_205333-faf03387.pth',
         },
     },
     'segformer_mitb0': {
         'cityscapes': {
             'config': 'mmsegmentation/configs/segformer/segformer_mit-b0_8x1_1024x1024_160k_cityscapes.py',
-            'checkpoint': 'checkpoints/segformer_mit-b0_8x1_1024x1024_160k_cityscapes_20211208_101857-e7f88502.pth'
+            'checkpoint': '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/checkpoints/segformer_mit-b0_8x1_1024x1024_160k_cityscapes_20211208_101857-e7f88502.pth'
         }
     },
     'segformer_mitb3': {
         'cityscapes': {
             'config': 'mmsegmentation/configs/segformer/segformer_mit-b3_8x1_1024x1024_160k_cityscapes.py',
-            'checkpoint': 'checkpoints/segformer_mit-b3_8x1_1024x1024_160k_cityscapes_20211206_224823-a8f8a177.pth'
+            'checkpoint': '~/scratch/Documents/CE6190/adversarial_attacks/alma_prox_segmentation/checkpoints/segformer_mit-b3_8x1_1024x1024_160k_cityscapes_20211206_224823-a8f8a177.pth'
         }
     },
 }
