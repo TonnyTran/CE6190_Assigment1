@@ -89,7 +89,10 @@ def mifgsm(model: nn.Module,
         best_adv = torch.where(batch_view(is_better), adv_inputs.detach(), best_adv)
 
         δ.data.add_(batch_view(α) * g.sign())
-        δ.data.clamp_(min=-batch_view(ε), max=batch_view(ε)).clamp_(min=neg_inputs, max=one_minus_inputs)
+        δ.data = torch.minimum(δ.data, -batch_view(ε))
+        δ.data = torch.maximum(δ.data, batch_view(ε))
+        δ.data = torch.minimum(δ.data, neg_inputs)
+        δ.data = torch.maximum(δ.data, one_minus_inputs)
 
     return best_adv
 
