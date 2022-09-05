@@ -13,7 +13,7 @@ from adv_lib.utils.visdom_logger import VisdomLogger
 def prox_l1_indicator(δ: Tensor, λ: Tensor, lower: Tensor, upper: Tensor) -> Tensor:
     """Proximity operator of λ||·||_1 + \iota_Λ. The lower and upper tensors correspond to the bounds of Λ."""
     prox = δ.flatten(1).abs().sub_(λ.unsqueeze(1))
-    prox = torch.minimum(prox, 0).view_as(δ).copysign_(δ)
+    prox = torch.minimum(prox, torch.tensor(0)).view_as(δ).copysign_(δ)
     prox = torch.minimum(prox , lower)
     prox = torch.maximum(prox , upper)
     return prox
