@@ -40,7 +40,6 @@ def train(train_loader, model, optimizer, scheduler, scaler, epoch, args):
         image = image.cuda(non_blocking=True)
         text = text.cuda(non_blocking=True)
         target = target.cuda(non_blocking=True).unsqueeze(1)
-
         # # multi-scale training
         # image = F.interpolate(image, size=(new_size, new_size), mode='bilinear')
 
@@ -48,13 +47,22 @@ def train(train_loader, model, optimizer, scheduler, scaler, epoch, args):
         with amp.autocast():
             pred, target, loss = model(image, text, target)
 
-        # backward
-        optimizer.zero_grad()
-        scaler.scale(loss).backward()
-        if args.max_norm:
-            torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_norm)
-        scaler.step(optimizer)
-        scaler.update()
+        loss = loss / args.gradient_acummulation_steps
+
+        if (( i + 1) % args.gradient_acummulation_steps == 0) or (i == len(train_loader)):
+            # backward
+            scaler.scale(loss).backward()
+            if args.max_norm:
+                torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_norm)
+            scaler.step(optimizer)
+            scaler.update()
+            optimizer.zero_grad()
+        else:
+            with model.no_sync():
+                scaler.scale(loss).backward()
+
+
+
 
         # metric
         iou, pr5 = trainMetricGPU(pred, target, 0.35, 0.5)
