@@ -1,0 +1,34 @@
+METHOD USED FOR CURRENT RUN unc_resnet50_run1_tl_2_td_256_id_448_md_56_sl_20_run1
+cuda being used with 1 GPUs!!
+No. of params in text_encoder: 1667072
+No. of params in conv_3x3: 16519680
+No. of params in sfm: 2632192
+No. of params in hcam: 21239808
+No. of params in aspp_decoder: 8919040
+No. of params in mask_decoder: 8263425
+Total number of params: 59241217
+wandb: WARNING Calling wandb.run.save without any arguments is deprecated.Changes to attributes are automatically persisted.
+Using cache found in /home3/theanhtran/.cache/torch/hub/pytorch_vision_v0.6.1
+Initializing dataset
+Processing unc: train set
+loading dataset refcoco into memory...
+creating index...
+index created.
+DONE (t=7.84s)
+Saving dataset corpus dictionary...
+Traceback (most recent call last):
+  File "/home3/theanhtran/02_subject/Segmentation/SHNET/main.py", line 358, in <module>
+    main(args)
+  File "/home3/theanhtran/02_subject/Segmentation/SHNET/main.py", line 235, in main
+    train_dataset = ReferDataset(
+  File "/home3/theanhtran/02_subject/Segmentation/SHNET/dataloader/referit_loader.py", line 119, in __init__
+    self.process_dataset()
+  File "/home3/theanhtran/02_subject/Segmentation/SHNET/dataloader/referit_loader.py", line 172, in process_dataset
+    data_func(split, dataset_folder)
+  File "/home3/theanhtran/02_subject/Segmentation/SHNET/dataloader/referit_loader.py", line 221, in process_coco
+    self.corpus.load_file(vocab_file)
+  File "/home3/theanhtran/02_subject/Segmentation/SHNET/dataloader/word_utils.py", line 64, in load_file
+    with codecs.open(filename, "r", "utf-8") as f:
+  File "/home3/theanhtran/env/anaconda/envs/3.9Segmentation/lib/python3.9/codecs.py", line 905, in open
+    file = builtins.open(filename, mode, buffering)
+FileNotFoundError: [Errno 2] No such file or directory: './data/referit/splits/vocabulary_Gref.txt'

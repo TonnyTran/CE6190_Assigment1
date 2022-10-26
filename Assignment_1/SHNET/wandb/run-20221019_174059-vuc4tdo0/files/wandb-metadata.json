@@ -1,0 +1,27 @@
+{
+    "os": "Linux-3.10.0-1127.19.1.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.9.0",
+    "heartbeatAt": "2022-10-19T09:40:59.736839",
+    "startedAt": "2022-10-19T09:40:59.036874",
+    "docker": null,
+    "gpu": "Quadro RTX 8000",
+    "gpu_count": 5,
+    "cpu_count": 56,
+    "cuda": null,
+    "args": [
+        "--run_name",
+        "run1"
+    ],
+    "state": "running",
+    "program": "/home3/theanhtran/02_subject/Segmentation/SHNET/main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/kanji95/SHNET.git",
+        "commit": "e681d1ee51b2aad9a8e06bd60ae661385ca74745"
+    },
+    "email": "anhtt17895@gmail.com",
+    "root": "/home3/theanhtran/02_subject/Segmentation/SHNET",
+    "host": "node02",
+    "username": "theanhtran",
+    "executable": "/home3/theanhtran/env/anaconda/envs/3.9Segmentation/bin/python"
+}
