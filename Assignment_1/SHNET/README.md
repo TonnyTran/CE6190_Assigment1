@@ -19,7 +19,7 @@ The data could be found at [here](https://cocodataset.org/#download). Please run
 
 ```shell
 # download
-mkdir datasets && cd datasets
+mkdir data && cd data
 wget http://images.cocodataset.org/zips/train2014.zip
 
 # unzip
