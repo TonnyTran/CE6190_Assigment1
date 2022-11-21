@@ -1,2 +1,12 @@
 # CE6190
-Repo for CE6190 course (Image Segmentation)
+
+## Referring image segmentation method comparison of SHNet and LAVT
+
+## Methods:
+* SHNet
+* LAVT
+
+## Datasets:
+* RefCOCO
+* CLEVR-Ref+
+
