@@ -1,1 +1,0 @@
-from .perceptual_color_distance_al import perc_al
